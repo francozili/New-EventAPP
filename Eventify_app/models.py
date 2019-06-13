@@ -12,7 +12,7 @@ class User(models.Model):
     
 
     def __str__(self):
-        return self.firstname
+        return self.picture
 
 
 class Event(models.Model):
@@ -22,3 +22,12 @@ class Event(models.Model):
     
     def __str__(self):
         return self.eventname
+
+class Location(models.Model):
+    address = models.CharField(default = '', max_length = 100)
+    picture = models.CharField(default = '', max_length = 100)
+    guestsize = models.IntegerField()
+    email = models.EmailField(default = '', max_length = 100, unique=True)
+    
+    def __str__(self):
+        return self.firstname
