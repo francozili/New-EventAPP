@@ -15,4 +15,10 @@ class User(models.Model):
         return self.firstname
 
 
-
+class Event(models.Model):
+    eventname = models.CharField(default = '', max_length = 100)
+    location = models.CharField(default = '', max_length = 100)
+    guest = models.IntegerField()
+    
+    def __str__(self):
+        return self.eventname
