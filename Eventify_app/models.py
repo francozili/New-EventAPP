@@ -12,16 +12,8 @@ class User(models.Model):
     
 
     def __str__(self):
-        return self.picture
+        return self.firstname
 
-
-class Event(models.Model):
-    eventname = models.CharField(default = '', max_length = 100)
-    location = models.CharField(default = '', max_length = 100)
-    guest = models.IntegerField()
-    
-    def __str__(self):
-        return self.eventname
 
 class Location(models.Model):
     address = models.CharField(default = '', max_length = 100)
@@ -31,3 +23,11 @@ class Location(models.Model):
     
     def __str__(self):
         return self.address
+
+class Event(models.Model):
+    eventname = models.CharField(default = '', max_length = 100)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='events')
+    guest = models.IntegerField()
+    
+    def __str__(self):
+        return self.eventname
