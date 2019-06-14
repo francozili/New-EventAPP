@@ -5,19 +5,18 @@ from Eventify_app.models import User, Location, Event
 
 class LocationSerializer(serializers.ModelSerializer):
     event = serializers.PrimaryKeyRelatedField(
-        queryset = Event.objects.all()
         many=True,
-        read_only=True
-        
-        
+        read_only=True,
     )
+    queryset = Event.objects.all()
+
     user = serializers.PrimaryKeyRelatedField(
         queryset = User.objects.all()
     ) 
     
     class Meta:
         model = Location
-        fields=('id', '__all__', 'event', 'user')
+        fields=('id', 'address', 'picture', 'guestsize', 'event', 'user')
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -29,7 +28,7 @@ class EventSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Event
-        fields=('id', '__all__', 'user', 'location')
+        fields=('id', 'eventname', 'firstname', 'location', 'guestname')
 
 
 
@@ -40,4 +39,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields=('id', '__all__', 'location', 'event')
+        fields=('id', 'firstname', 'location', 'eventname', 'lastname', 'address', 'picture' )
