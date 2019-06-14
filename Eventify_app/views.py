@@ -7,3 +7,7 @@ from django.http import JsonResponse, HttpResponse
 
 # Create your views here.
 
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+
