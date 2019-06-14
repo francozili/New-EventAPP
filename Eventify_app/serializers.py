@@ -5,13 +5,14 @@ from Eventify_app.models import User, Location, Event
 
 class LocationSerializer(serializers.ModelSerializer):
     event = serializers.PrimaryKeyRelatedField(
+        queryset = Event.objects.all()
         many=True,
         read_only=True
         
         
     )
     user = serializers.PrimaryKeyRelatedField(
-        queryset = UserProfile.objects.all()
+        queryset = User.objects.all()
     ) 
     
     class Meta:
@@ -21,10 +22,10 @@ class LocationSerializer(serializers.ModelSerializer):
 
 class EventSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(
-        queryset = UserProfile.objects.all()
+        queryset = User.objects.all()
     )
     location = serializers.PrimaryKeyRelatedField(
-        queryset = Pantry.objects.all()
+        queryset = Location.objects.all()
     )
     class Meta:
         model = Event
