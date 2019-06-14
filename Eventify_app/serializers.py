@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from Eventify_app.models import User, Location
+from Eventify_app.models import User, Location, Event
 
 # User Serializer
 
 class LocationSerializer(serializers.ModelSerializer):
-    events = serializers.PrimaryKeyRelatedField(
+    event = serializers.PrimaryKeyRelatedField(
         many=True,
         read_only=True
         
@@ -16,7 +16,19 @@ class LocationSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Location
-        fields=('id', '__all__', 'events', 'user')
+        fields=('id', '__all__', 'event', 'user')
+
+
+class EventSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(
+        queryset = UserProfile.objects.all()
+    )
+    location = serializers.PrimaryKeyRelatedField(
+        queryset = Pantry.objects.all()
+    )
+    class Meta:
+        model = Event
+        fields=('id', '__all__', 'user', 'location')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
