@@ -1,6 +1,5 @@
 # tunr_app/urls.py
 from django.urls import path, include
-from . import views
 from .views import EventViewSet, LocationViewSet, UserViewSet
 from rest_framework import routers
 
