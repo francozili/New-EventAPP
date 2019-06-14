@@ -6,7 +6,7 @@ class User(models.Model):
     firstname = models.CharField(default = '', max_length = 100)
     lastname = models.CharField(default = '', max_length = 100)
     picture = models.CharField(default = '', max_length = 100)
-    phonenumber = models.IntegerField()
+    phonenumber = models.CharField(default = '', max_length = 100)
     email = models.EmailField(default = '', max_length = 100, unique=True)
     created_at = models.DateTimeField(auto_now_add = True)
     
@@ -30,4 +30,4 @@ class Location(models.Model):
     email = models.EmailField(default = '', max_length = 100, unique=True)
     
     def __str__(self):
-        return self.firstname
+        return self.address
