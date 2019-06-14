@@ -30,7 +30,13 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields=('id', '__all__', 'user', 'location')
 
+
+
 class UserSerializer(serializers.ModelSerializer):
+    location = LocationSerializer(many=True, required=False, read_only=True )
+
+    event = EventSerializer(many=True, required=False, read_only=True)
+
     class Meta:
         model = User
-        fields = '__all__'
+        fields=('id', '__all__', 'location', 'event')
