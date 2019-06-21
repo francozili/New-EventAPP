@@ -5,7 +5,7 @@ from .models import Event, User, Location
 # import requests
 from django.http import JsonResponse, HttpResponse
 
-# Create your views here.
+
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
@@ -18,3 +18,39 @@ class LocationViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+# class EventDetailViewSet(viewsets.ModelViewSet):
+#     queryset = Event.objects.all()
+#     serializer_class = EventSerializer
+
+# class LocationDetailViewSet(viewsets.ModelViewSet):
+#     queryset = Location.objects.all()
+#     serializer_class = LocationSerializer
+
+# class UserDetailViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+
+# class EventViewSet(ListAPIView):
+#     queryset = Event.objects.all()
+#     serializer_class = EventSerializer
+
+# class LocationViewSet(ListAPIView):
+#     queryset = Location.objects.all()
+#     serializer_class = LocationSerializer
+
+# class UserViewSet(ListAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+# class EventDetailViewSet(RetrieveAPIView):
+#     queryset = Event.objects.all()
+#     serializer_class = EventSerializer
+
+# class LocationDetailViewSet(RetrieveAPIView):
+#     queryset = Location.objects.all()
+#     serializer_class = LocationSerializer
+
+# class UserDetailViewSet(RetrieveAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
