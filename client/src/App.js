@@ -34,6 +34,12 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
+                <div className="temp">
+                        <h4 id="sky"> </h4>
+                        <img id="icon" src="" alt="weather icon" />
+                        <h4 id="hot"> degrees</h4>
+                        
+                    </div>
 
                     <div>
                         <Link to="/"><h1>Eventify!</h1></Link>
