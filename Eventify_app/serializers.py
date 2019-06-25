@@ -16,19 +16,19 @@ class LocationSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Location
-        fields=('id', 'address', 'picture', 'guestsize',)
+        fields=('id', 'address', 'picture', 'guestsize','email')
 
 
 class EventSerializer(serializers.ModelSerializer):
     # user = serializers.PrimaryKeyRelatedField(
     #     queryset = User.objects.all()
     # )
-    location = serializers.PrimaryKeyRelatedField(
-        queryset = Location.objects.all()
-    )
+    # location = serializers.PrimaryKeyRelatedField(
+    #     queryset = Location.objects.all()
+    # )
     class Meta:
         model = Event
-        fields=('id', 'eventname', 'location', 'guest')
+        fields=('id', 'eventname', 'location', 'guest', 'picture')
 
 
 
@@ -39,4 +39,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields=('id', 'firstname', 'location', 'event', 'lastname', 'picture' )
+        fields=('id', 'firstname', 'location', 'event', 'lastname', 'picture','email','phonenumber' )
