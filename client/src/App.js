@@ -1,21 +1,3 @@
-// import React from 'react'
-// import './App.css';
-// import CustomLayout from './containers/layout'
-// import 'antd/dist/antd.css';
-// import EventList from './containers/Eventlist'
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <CustomLayout>
-//         <EventList/>
-//       </CustomLayout>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import HomeField from "./components/Home"
@@ -26,8 +8,28 @@ import UserList from "./components/UserList"
 import Event from "./components/Event"
 import EventList from "./components/EventList"
 import "./App.css";
+import axios from 'axios'
 
 class App extends Component {
+    state = {
+        weather: [],
+        temp: [],
+        icon: []
+    }
+    componentDidMount = () => {
+        this.weatherAPI();
+    }
+
+    weatherAPI = () => {
+        axios.get(`https://fcc-weather-api.glitch.me/api/current?lat=33&lon=-84`)
+            .then(res => {
+                console.log(res.data['weather'])
+                let weather = document.getElementById('sky').innerHTML = res.data['weather'][0]['main']
+                let icon = document.getElementById('icon').innerHTML = res.data['weather'][0]['icon']
+                let temp = document.getElementById('hot').innerHTML = res.data['main']['temp']
+                this.setState({ type: weather, temp: temp, icon: icon })
+            })
+    }
     render() {
         return (
             <Router>
