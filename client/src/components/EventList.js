@@ -22,6 +22,7 @@ class EventList extends Component {
             this.setState({ events: res.data })
         })
     }
+// toggles event form
 
     toggleEventForm = () => {
         this.setState((state, props) => {
