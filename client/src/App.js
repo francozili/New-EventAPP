@@ -9,6 +9,7 @@ import Event from "./components/Event"
 import EventList from "./components/EventList"
 import "./App.css";
 import axios from 'axios'
+import world from './components/Images/world.png'
 
 class App extends Component {
     state = {
@@ -31,12 +32,18 @@ class App extends Component {
             })
     }
     render() {
+        const imgStyle = {
+            width: "9%",
+            // height:"%",
+            margin: "20px",
+            borderRadius: "100px"
+          }
         return (
             <Router>
                 <div className="App">
                 <div className="temp">
                         <h4 id="sky"> </h4>
-                        <img id="icon" src="" alt="weather icon" />
+                        <img id="icon"style={imgStyle}src={world} alt="weather icon" />
                         <h4 id="hot"> degrees</h4>
                         
                     </div>
