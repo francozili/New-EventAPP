@@ -5,7 +5,7 @@ django-allauth==0.39.1
 enum34==1.1.6
 idna==2.8
 oauthlib==3.0.1
-pipenv==2018.11.26
+pipenv==2022.1.8
 python-openid==2.2.5
 pytz==2019.1
 requests==2.22.0
